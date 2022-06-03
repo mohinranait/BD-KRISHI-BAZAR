@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+body{
+  background:#EDEDED;
+
+}
+.mbHead h1{
+  color:red;
+}
+.mbContainer {
+    width: 1140px;
+    margin: auto;
+}
+.box {
+    padding: 1px 18px;
+    background: white;
+    box-shadow: 0px 14px 48px -35px black;
+    border-radius: 5px;
+}
+
+.bpLeft {
+    border: 1px solid #e9e7e7;
+    width: 495px;
+    float: left;
+    margin-right: 30px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.bpRight {
+    width: 495px;
+    float: left;
+    border: 1px solid #e9e7e7;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.bPart {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.bHeadline h3 {
+    color: #008B8B;
+}
+.bpLeft font {
+    font-size: 25px;
+}
+.mbWrapper {
+    font-family: 'Merriweather Sans';
+}
+.bpLeft font {
+    background: #FFF8DC;
+    display: block;
+    font-size: 21px;
+    padding: 4px;
+}
+.bpRight font {
+    background: #FFF8DC;
+    display: block;
+    font-size: 21px;
+    padding: 4px;
+}
+button {
+    padding: 10px 17px;
+    font-size: 16px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.bHeadline h4 i {
+    color: #009FC3;
+    font-weight: 500;
+}
+
+.mbWrapper h1 {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color:red;
+}
+button:hover {
+    background: #0069D9;
+    cursor: pointer;
+    color: white;
+}
