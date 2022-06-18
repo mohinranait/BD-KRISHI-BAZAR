@@ -22,6 +22,16 @@ use Carbon\Carbon;
 @extends('welcome.layouts.welcomeMaster')
 
 @section('content')
+    @if (\Session::has('massege'))
+        <div class="alert alert-success mt-4">
+             {!! \Session::get('massege') !!}  
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+
 <div class="container">
     <div class="row">
         <div class="col-12 text-left">

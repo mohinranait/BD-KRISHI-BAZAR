@@ -10,11 +10,14 @@ use App\Model\Demo;
 use App\Model\Subject;
 use App\Model\Post;
 use App\Model\MembershipPackage;
+use App\Model\ShopInformation;
 use App\Model\Upazila;
+use App\Model\District;
 use App\Slider;
 use App\SubCategory;
 use App\UserAd;
 use App\Model\PostComment;
+use DB;
 
 class WelcomeController extends Controller
 {
@@ -29,10 +32,32 @@ class WelcomeController extends Controller
         $dairyProducts =UserAd::where('category',23)->where('active', true)->latest()->paginate(9);
         $aquaculturee =UserAd::where('category',24)->where('active', true)->latest()->paginate(9);
         $agricultureJobs =UserAd::where('category',25)->where('active', true)->latest()->paginate(9);
+        $shops = ShopInformation::orderby('id', 'desc')->where('status',1)->get();
+        $districts = District::orderby('name', 'asc')->get();
         $categorys = Category::where('active', true)->get();
         $sliders=Slider::where('status',true)->latest()->get();
         
-        return view('welcome', compact('blogs', 'petAds','agriAds','agriFoodAds','agricultureJobs','aquaculturee','dairyProducts', 'categorys','sliders'));
+        return view('welcome', compact("districts",'shops','blogs', 'petAds','agriAds','agriFoodAds','agricultureJobs','aquaculturee','dairyProducts', 'categorys','sliders'));
+    }
+
+    // search by zila wish upzila
+    public function findUpzila($id){
+        $upzila = DB::table('upazilas')->where('district_id', $id)->get();
+
+        return response()->json($upzila);
+
+    }
+    public function searchShop(Request $request){
+        $shops = ShopInformation::where('shop_upzila_id', $request->search_string)->orderby('shop_name','asc')->get();
+        if( $shops->count() >= 1){
+            return view("welcome.ecommerce.shop-card" , compact('shops'));
+        }
+    }
+    public function searchShopZila(Request $request){
+        $shops = ShopInformation::where('shop_district_id', $request->search_string)->orderby('shop_name','asc')->get();
+        if( $shops->count() >= 1){
+            return view("welcome.ecommerce.shop-card" , compact('shops'));
+        }
     }
 
     public function homeCat(SubCategory $cat, $sl)

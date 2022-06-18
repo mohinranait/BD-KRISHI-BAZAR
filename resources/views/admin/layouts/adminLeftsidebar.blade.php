@@ -26,6 +26,91 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+
+          <!-- Ecommerce left menu start -->
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-shopping-bag"></i>
+              <p>
+                {{ __('Products') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item ">
+                <a href="{{route('product.create')}}" class="nav-link {{ session('lsbsm') == 'dashboard' ? ' active ' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ __('Add New Product') }}</p>
+                </a>
+              </li>
+
+             
+               <li class="nav-item ">
+                <a href="{{route('product.index')}}" class="nav-link {{ session('lsbsm') == 'newCatagoryCreate' ? ' active ' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ __('All Products') }}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Shop owner -->
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-store"></i>
+              <p>
+                {{ __('Shop') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item ">
+                <a href="{{route('shop.create')}}" class="nav-link {{ session('lsbsm') == 'dashboard' ? ' active ' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ __('Add New Shop') }}</p>
+                </a>
+              </li>
+
+             
+               <li class="nav-item ">
+                <a href="{{route('shop.index')}}" class="nav-link {{ session('lsbsm') == 'newCatagoryCreate' ? ' active ' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ __('All Shop') }}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Order management -->
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-store"></i>
+              <p>
+                {{ __('Orders') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item ">
+                <a href="{{route('order.create')}}" class="nav-link {{ session('lsbsm') == 'dashboard' ? ' active ' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ __('Add New order') }}</p>
+                </a>
+              </li>
+
+             
+               <li class="nav-item ">
+                <a href="{{route('order.index')}}" class="nav-link {{ session('lsbsm') == 'newCatagoryCreate' ? ' active ' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ __('All order') }}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Ecommerce left menu end -->
+
           <li class="nav-item has-treeview {{ session('lsbm') == 'dashboard' ? ' menu-open ' : '' }}">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -43,13 +128,7 @@
                 </a>
               </li>
 
-             <!--  <li class="nav-item ">
-                <a href="{{ route('admin.companiesAll') }}" class="nav-link {{ session('lsbsm') == 'companiesAll' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>{{ __('All Companies') }}</p>
-                </a>
-              </li>   -->
-<!-- learn with s -->
+             
                <li class="nav-item ">
                 <a href="{{ route('admin.newCatagoryCreate') }}" class="nav-link {{ session('lsbsm') == 'newCatagoryCreate' ? ' active ' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
@@ -193,6 +272,8 @@
 
             </ul>
           </li>
+
+         
 
         </ul>
       </nav>

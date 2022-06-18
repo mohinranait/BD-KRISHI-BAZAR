@@ -99,9 +99,9 @@
                 <li class="nav-item">
                     <a href="{{ route('blogs') }}" class="nav-link">Blog</a>
                 </li>
-                <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('terms') }}">T&C</a>
-                                        </li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('terms') }}">T&C</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.shop.create') }}">Shop</a></li>
+                <li class="nav-item card-icon" ><a class="nav-link" href="{{route('card.page')}}"><i class="fas fa-shopping-cart"><span class="card-count badge badge-danger">{{ App\Model\Card::cardItemCount() }}</span></i></a></li>
             </ul>
 
             <!-- SEARCH FORM -->

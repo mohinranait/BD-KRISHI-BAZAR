@@ -3,26 +3,118 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Welcome\WelcomeController;
+use App\Http\Controllers\Welcome\EcommerceFrontendController;
+
+use App\Http\Controllers\Admin\EcommerceBackendController;
+use App\Http\Controllers\Admin\OrderController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
 */
 
-// Route::get('/', [
-//     'uses' => 'Welcome\WelcomeController@welcome',
-//     'as' => 'welcome.welcome'
-// ]);
+// Frontend Ecommerce Route
+Route::post("/product-incremen" , [EcommerceFrontendController::class , "productIncremen"])->name('product.incremen');
+Route::post("/product-decremen" , [EcommerceFrontendController::class , "productDecremen"])->name('product.decremen');
+Route::post("/product-addto-card" , [EcommerceFrontendController::class , "productAddtoCard"])->name('product.addto.card');
+Route::get("/card", [EcommerceFrontendController::class , "CardPage"])->name('card.page');
+Route::get("/checkout", [EcommerceFrontendController::class , "checkout"])->name('checkout');
+Route::post('/card-item-delete/{id}', [EcommerceFrontendController::class , "cartItemDelete"])->name('card.item.delete');
+Route::post('/order', [EcommerceFrontendController::class , "order"])->name('order');
+Route::middleware('auth')->group(function (){
+    Route::group(['prefix' => 'user'],function(){
+        Route::group(["prefix" => 'product'], function(){
+            Route::get("/all" , [EcommerceFrontendController::class , "userProduct"] )->name('user.product');
+            Route::get("/create/{id}" , [EcommerceFrontendController::class , "userProductAdd"] )->name('user.product.add');
+            Route::post("/store" , [EcommerceFrontendController::class , "userProductStore"] )->name('user.product.store');
+            Route::get("/edit/{slug}" , [EcommerceFrontendController::class , "userProductEdit"] )->name('userproductedit');
+            Route::post("/update/{id}" , [EcommerceFrontendController::class , "userProductUpdate"] )->name('user.product.update');
+            Route::post("/delete/{id}" , [EcommerceFrontendController::class , "userProductDelete"] )->name('user.product.delete');
+        }); 
+    
+        Route::group(['prefix' => 'shop'], function(){
+            Route::get('/create' , [EcommerceFrontendController::class , "frontendShopCreate"] )->name('frontend.shop.create');
+            Route::post('/store' , [EcommerceFrontendController::class , "frontendShopStore"] )->name('frontend.shop.store');
+            Route::get('/edit/{slug}' , [EcommerceFrontendController::class , "frontendShopEdit"] )->name('frontend.shop.edit');
+            Route::post('/update/{id}' , [EcommerceFrontendController::class , "frontendShopUpdate"] )->name('frontend.shop.update');
+        });
+    });
 
-Route::post("post-comment-store" , [WelcomeController::class , "postCommentStore"])->name('postCommentStore');
+});
+
+Route::get('/user-zila/{id}' , [EcommerceFrontendController::class , "userZila"] )->name('user.zila');
+Route::get('/user-product-search', [EcommerceFrontendController::class , "userProductSearch"])->name('user.product.search');
+// realtime search inside shop
+Route::get("/realtime-shop-search-by-product/{id}" , [EcommerceFrontendController::class , "realTimeSearchByShop"])->name("realtime.search.product");
+
+
+
+ // dynamic dependency select box in zila , upzila 
+Route::get("/upazila/{id}" , [EcommerceBackendController::class , "upZila"] );
+
+
+// Ecommerce Backend Route Group start
+Route::middleware('auth')->group(function (){
+    Route::group(['prefix' => "/admin"] , function(){
+        Route::group(['prefix' => '/product'],function(){
+            // Realtime Product Search
+            Route::get("/realtime-product-search" , [EcommerceBackendController::class , "realtimeProduct"])->name("realtimeProduct");
+
+            Route::get("/index" , [EcommerceBackendController::class , "productIndex"])->name("product.index");
+            Route::get("/create" , [EcommerceBackendController::class , "ProductCreate"])->name("product.create");
+            Route::post("/store" , [EcommerceBackendController::class , "productStore"])->name("product.store");
+            Route::get("/edit/{id}" , [EcommerceBackendController::class , "productEdit"])->name("product.edit");
+            Route::post("/update/{id}" , [EcommerceBackendController::class , "productUpdate"])->name("product.update");
+            Route::post("/destroy/{id}" , [EcommerceBackendController::class , "productDelete"])->name("product.delete");
+        });
+        Route::group(['prefix' => '/shop'],function(){
+            // Shop Realtime search 
+            Route::get("/realtime-shop-search" , [EcommerceBackendController::class , "realShopSearch"])->name("realtimeShop");
+        
+            Route::get("/index" , [EcommerceBackendController::class , "shopIndex"])->name("shop.index");
+            Route::get("/create" , [EcommerceBackendController::class , "shopCreate"])->name("shop.create");
+            Route::post("/store" , [EcommerceBackendController::class , "shopStore"])->name("shop.store");
+            Route::get("/edit/{id}" , [EcommerceBackendController::class , "shopEdit"])->name("shop.edit");
+            Route::post("/update/{id}" , [EcommerceBackendController::class , "shopUpdate"])->name("shop.update");
+            Route::post("/destroy/{id}" , [EcommerceBackendController::class , "shopDelete"])->name("shop.delete");
+        });
+
+
+        Route::group(['prefix' => '/order'],function(){
+           
+        
+            Route::get("/index" , [OrderController::class , "orderIndex"])->name("order.index");
+            Route::get("/create" , [OrderController::class , "orderCreate"])->name("order.create");
+            Route::post("/store" , [OrderController::class , "orderStore"])->name("order.store");
+            Route::get("/show/{id}" , [OrderController::class , "orderShow"])->name("order.show");
+            Route::get("/edit/{id}" , [OrderController::class , "orderEdit"])->name("order.edit");
+            Route::post("/update/{id}" , [OrderController::class , "orderUpdate"])->name("order.update");
+            Route::post("/destroy/{id}" , [OrderController::class , "orderDelete"])->name("order.delete");
+        });
+    });
+});
+
+
+// Ecommerce Backend Route Group end
+
+Route::get("/shop/{slug}" , [EcommerceFrontendController::class , 'ShopByProduct'])->name("ShopByProduct");
+Route::get("/products/{slug}" , [EcommerceFrontendController::class , 'products'])->name("products");
+Route::post("/post-comment-store" , [WelcomeController::class , "postCommentStore"])->name('postCommentStore');
+
+// Search by shop with zila, upzila
+Route::get('/find-upzila/{id}' , [WelcomeController::class,"findUpzila"]);
+Route::get('/search-shop' , [WelcomeController::class,"searchShop"])->name('search.shop');
+Route::get('/search-shop-zila' , [WelcomeController::class,"searchShopZila"])->name('search.shop.zila');
+
 
 
 Route::get('/', [
     'uses' => 'Welcome\WelcomeController@home1',
     'as' => 'welcome.home1'
 ]);
+
+
 
 Route::get('/sub-category/2/product/{cat}/{sl}', [
     'uses' => 'Welcome\WelcomeController@homeCat',

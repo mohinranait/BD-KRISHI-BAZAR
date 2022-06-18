@@ -45,6 +45,44 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-ul{list-style-type:none;padding:0;margin:0}.w3-ul li{padding:8px 16px;border-bottom:1px solid #ddd}.w3-ul li:last-child{border-bottom:none}
 .w3-tooltip,.w3-display-container{position:relative}.w3-tooltip .w3-text{display:none}.w3-tooltip:hover .w3-text{display:inline-block}
 .w3-ripple:active{opacity:0.5}.w3-ripple{transition:opacity 0s}
+.shop-search-section{
+    background-image:linear-gradient(135deg,#b00,#8d0000);
+    margin-bottom: 30px;
+}
+.bkashInfo, .nagadInfo{
+    display: none;
+}
+
+
+.shop-title{
+    color: white;
+    font-size: 21px;
+}
+.shop-search-form{
+    background: white;
+    padding: 2px 7px;
+    border-radius: 3px;
+}
+.shop-select-box{
+    border: none;
+    border-radius: 0;
+}
+.shop-select-box option{
+    padding:15px ;
+}
+.shop-select-box:focus {
+    color: #495057;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: inset 0 0 0 transparent;
+}
+.shop-left-selectbox{
+    border-right: 1px solid #ddd;
+}
+.shop-search-btn{
+    background: #B70000;
+    color: white;
+}
 
 .header-nav{
     margin-top: 50px;
@@ -69,11 +107,10 @@ nav.navbar.navbar-expand-lg.navbar-light {
 }
 ul.navbar-nav {
     margin: auto;
-    background: #255849;
     padding: 4px 20px;
 }
 a.nav-link {
-    color: white !important;
+    color: Black !important;
     font-size: 18px;
     font-weight: 500;
 }
@@ -173,7 +210,300 @@ a.shop-btn{
     margin-bottom: 7px;
     display: inline-block;
 }
-.w3-input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
+.card-titel-center{
+    float: initial;
+}
+.shop-banner-section{
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    padding: 10px 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.shop-overlay{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.568);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.search-product-input{
+    width: 84%;
+    padding: 10px;
+    background-color: #ff6a00;
+    color: black;
+}
+.search-btn{
+    background-color: #ee3838;
+    color: white;
+}
+  
+.search-product-btn{
+    width: 15%;
+    padding: 10px 0;
+    margin-left: -8px;
+}
+.produt-item{
+    padding: 5px;
+    text-align: center;
+    min-height: 300px;
+    width: 96%;
+    position: relative;
+    margin: 0 auto 20px auto;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 0.5px solid #ddd;
+    box-shadow: 0px 3px 5px #ddd;
+}
+.product-header{
+    min-height: 181px;
+    overflow: hidden;
+    
+}
+.produt-item:hover{
+    border: .5px solid #ddd;
+    color: #ff6a00;
+}
+.product-body{
+    margin-top: 8px;
+    text-align: center;
+}
+.product-body .product-price{
+    margin-bottom: 5px;
+    margin-top: 3px;
+    color: #000;
+}
+.product-footer form button.CardBtn{
+    text-align: center;
+    padding: 6px;
+    border: none;
+    background-color: transparent;
+    color: black;
+    transition: .5s;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+.product-link:hover{
+    color: #ee3838;
+}
+#proDec{
+    border-right: 1px solid #ee3838;
+    margin-left: -2px;
+}
+#proInc{
+    border-left: 1px solid #ee3838;
+    margin-right: -2px;
+    
+}
+.product-footer form button.CardBtn:hover{
+    background-color: #e62c1b;
+    
+
+}
+.addToCardShow{
+    width: 60%;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+.product-title{
+    margin-bottom: 8px;
+    
+}
+
+.product-footer{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+.product-footer .product-add-form{
+    background: #ff6a00;
+}
+.product-header img{
+    transition: .5s;
+}
+.produt-item:hover .product-header img{
+    transform: scale(1.1);
+}
+.cur{
+    cursor: not-allowed;
+}
+.carBtnModal{
+    padding: 8px 18px;
+    font-size: 17px;
+    border: 1px solid #ff6a00;
+    background: #ff6a00;
+    cursor: pointer;
+    color: white;
+}
+.carBtnModal.qty{
+    width: 60px;
+    margin: 0 -6px;
+    background: transparent;
+    color: black;
+}
+.carBtnModal.qty:hover{
+    background: transparent;
+    color: black;
+}
+.addToWishCard{
+    background: #ff6a00;
+    color: white;
+    font-weight: normal;
+    border: none;
+    padding: 10px 35px;
+    margin-top: 15px;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+.product-link-color{
+    cursor: pointer;
+}
+#staticBackdropLabel{
+    font-size: 28px;
+    color: #ff6a00;
+}
+.modalAdTowish{
+    
+    background: rgb(49, 49, 49);
+}
+.carBtnModal:hover , .modalAdToCard:hover{
+    background-color: #f57d27;
+}
+.modalAdTowish:hover{
+    background: #000;
+}
+.shop-owner-info img{
+    width: 100px;
+    margin-right: 25px;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 1px;
+}
+.shop-owner-info h3{
+    font-size: 25px;
+    font-weight: normal;
+}
+.card-icon{
+    position: relative;
+}
+.card-count{
+    position: absolute;
+    top: 0;
+    padding: 2px 4px;
+    font-size: 12px;
+}
+
+.w3-input{
+    padding:8px;display:block;
+    border:none;
+    border-bottom:1px solid #ccc;
+    width:100%
+}
+button.proAdBtn {
+    border: none;
+    padding: 7px 8px;
+    background: transparent;
+    color: white;
+}
+button.proAdBtn:hover {
+    background: #ee3838;
+}
+button.proAdBtn.decBtn {
+    padding: 7px 12px;
+    border-right: 1px solid #ee3838;
+}
+button.proAdBtn.incBtn {
+    padding: 7px 9px;
+    border-left: 1px solid #ee3838;
+}
+.left-sidebar-group{
+    background-color: #f7f7fb;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.left-sidebar-group li{
+   list-style: none;
+   border-bottom: 1px solid #ddd;
+}
+.left-sidebar-group li a{
+   color: black;
+   display: block;
+   padding: 7px 15px;
+}
+.left-sidebar-group li a:hover{
+   color: #ff6a00;
+}
+.left-sidebar-group li:hover{
+   background: white;
+}
+.account-title{
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+    margin-bottom: 2px;
+}
+.account-title h3{
+    padding: 6px 0 6px 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+    color: black;
+    margin: 0;
+}
+/* Card page css */
+.card-row{
+    
+}
+.card-item a{
+    font-size: 15px;
+    color: #000;
+}
+.card-row td img{
+    vertical-align: middle;
+    width: 85px;
+    margin-right: 15px;
+}
+.card-row td{
+    vertical-align: middle;
+    color: #5e5d5d;
+    font-size: 14px;
+    position: relative;
+}
+.item-total-price{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+.order-summery-box{
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    background: #f3f3f3;
+    min-height: 193px;
+}
+.order-summery-box h4{
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.order-summery-box p {
+    margin-bottom: 7px;
+}
+.order-summery-box p span{
+    font-weight: bold;
+    width: 90px;
+    display: inline-block;
+}
 .w3-select{padding:9px 0;width:100%;border:none;border-bottom:1px solid #ccc}
 .w3-dropdown-click,.w3-dropdown-hover{position:relative;display:inline-block;cursor:pointer}
 .w3-dropdown-hover:hover .w3-dropdown-content{display:block}
@@ -359,7 +689,6 @@ a.shop-btn{
 .w3-border-dark-grey,.w3-hover-border-dark-grey:hover,.w3-border-dark-gray,.w3-hover-border-dark-gray:hover{border-color:#616161!important}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
-
 
 
 

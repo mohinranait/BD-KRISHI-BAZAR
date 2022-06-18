@@ -178,13 +178,8 @@
 
   $(document).ready(function() {
     $('#description').summernote({
-  placeholder: 'Write Descriptio of the post...',
-  tabsize: 2,
-  height: 260,
-  dialogsInBody: true
-});
-
-
+      placeholder: 'Write Descriptio of the post...',tabsize: 2,height: 260, dialogsInBody: true
+    });
     $('.select2').select2({theme: 'bootstrap4'});
 
   });

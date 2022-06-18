@@ -3,6 +3,10 @@
 /////////////////////////////
     $(".select2").select2();
 
+  
+
+
+
 /////////////////////////////
       $(document).on('click','.changed-menu',function(e){
         e.preventDefault();

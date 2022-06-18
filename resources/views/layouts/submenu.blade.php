@@ -1,39 +1,57 @@
-<!--<div class="row py-4 d-flex justify-content-center">-->
-<!--    <div class="col-md-3 bg-primary text-center mr-1 mb-3">-->
-<!--        <a href="{{ route('allAds') }}">-->
-<!--            <h3>All ADs</h3>-->
-<!--        </a>-->
-<!--    </div>-->
-<!--    <div class="col-md-4 bg-primary text-center mr-1 mb-3">-->
-<!--        <h3>Sell by Bdkb</h3>-->
-<!--    </div>-->
-
-<!--    <div class="col-md-4 btn bg-primary text-center mr-1 mb-3">-->
-<!--        <form action="{{ route('addSearch') }}" method="POST">-->
-<!--            @csrf-->
-<!--                <div class="row">-->
-<!--                    <div class="col-9">-->
-<!--                        <input type="text" placeholder="Product title" name="title" class="form-control">-->
-
-<!--                    </div>-->
-<!--                    <div class="col-2">-->
-<!--                        <button type="submit" class="btn btn-secondary">Search</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="row pb-3">-->
-<!--    <div class="col-12">-->
-<!--            <a href="" class="btn btn-info mr-2"  data-toggle="modal" data-target="#exampleModal">Area Search</a>-->
-
-<!--    </div>-->
-<!--</div>-->
 
 
-<div class="row py-4 d-flex justify-content-center">
+<div class="shop-search-section mt-3">
+    <div class="">
+         <!-- Ecommerce option -->
+         <div class="row  ">
+            <div class="col-lg-12">
+                <div class="row  p-4 ">
+                    <div class="col-lg-6">
+                        <div  class="shop-search-form mb-3">
+                            
+                            <form action="{{ route('addSearch') }}" method="POST" >
+                                @csrf 
+                                <div class="row g-2 ">
+                                    <div class="col-lg-9 col-md-5 col-sm-5" style="padding-right:2.5px; padding-left:2.5px">
+                                        <div class="form-group mb-0">
+                                            <input type="text" name="title" class="form-control shop-select-box" placeholder="Product Title">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-2 col-sm-2" style="padding-right:2.5px; padding-left:2.5px">
+                                        <div class="form-group mb-0">
+                                            <input type="submit" class="btn shop-search-btn  w-100" value="Search" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div >
+                                    <a href="{{ route('user.ads') }}" class="btn btn-success w-100">POST YOUR ADS</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div>
+                                    <a href="{{route('allAds')}}" class="post-add-btn w-100 text-center">ALL ADS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div>
+                        <a href="" class="btn btn-warning my-2 mr-2 w-100"  data-toggle="modal" data-target="#exampleModal">Area Search</a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="row py-4 d-flex justify-content-center">
     <div class="col-lg-3  d-flex align-items-center justify-content-center mr-1">
     <a href="" class="btn btn-warning my-2 mr-2 w-100"  data-toggle="modal" data-target="#exampleModal">Area Search</a>
     </div>
@@ -93,7 +111,7 @@
     </div>
 
 
-</div>
+</div> -->
 
 
 
