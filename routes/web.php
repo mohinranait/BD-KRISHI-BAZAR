@@ -40,7 +40,6 @@ Route::middleware('auth')->group(function (){
             Route::post('/update/{id}' , [EcommerceFrontendController::class , "frontendShopUpdate"] )->name('frontend.shop.update');
         });
     });
-
 });
 
 Route::get('/user-zila/{id}' , [EcommerceFrontendController::class , "userZila"] )->name('user.zila');
